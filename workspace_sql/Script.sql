@@ -354,3 +354,257 @@ WHERE comm IS NULL
 	AND job IN ('MANAGER', 'CLERK')
 	AND ename NOT LIKE '_L%';
 
+-- 함수 part
+
+SELECT ename, upper(ename), lower(ename), initcap(ename)
+	FROM emp;
+
+SELECT 1 FROM dual;
+
+SELECT upper('aBc') FROM dual;
+SELECT lower('aBc') FROM dual;
+SELECT initcap('aBc') FROM dual;
+
+SELECT upper(lower('aBc')) FROM dual;
+
+-- 검색에 적용(ex.사용자는 대소문자 구분 없이 검색함)
+SELECT * FROM emp
+WHERE ename LIKE upper('%aM%');
+
+SELECT * FROM emp
+WHERE lower(ename) LIKE lower('%aM%');
+
+SELECT ename, length(ename)
+	FROM emp;
+
+SELECT * FROM EMP
+WHERE length(ename) = 5;
+
+SELECT * FROM EMP
+WHERE length(job) = 7;
+
+-- 복습
+SELECT upper(ename) AS "NAME", lower(ename) "name", initcap(ename) "Name"
+	FROM EMP
+WHERE comm IS NULL 
+	AND (lower(ename) NOT LIKE ('_l%')
+	OR length(ename) = 6)
+UNION ALL
+SELECT ename, ename, ename FROM emp
+WHERE length(job) > 5
+ORDER BY "NAME" ASC;
+--
+
+SELECT LENGTH('a'), length('한'), lengthb('a'), lengthb('한') FROM dual;
+
+SELECT 
+	job, 
+	substr(job, 1, 2), 
+	substr(job, 2, 3),
+	substr(job, 5) 
+FROM emp;
+
+SELECT ename FROM EMP;
+SELECT substr(ename, 2, 3) FROM EMP;
+SELECT substr(ename, 2, 30) FROM EMP; -- 마지막 숫자가 크면 끝까지만 출력
+SELECT substr(ename, 20, 3) FROM EMP; -- 실제 길이보다 범위를 넘어가면 NULL
+SELECT substr(ename, -3, 2) FROM EMP; -- 뒤에서 부터 2글자 ex) CLERK 의 경우 앞에서 부터 -5 -4 -3 -2 -1
+SELECT substr(ename, -30, 2) FROM EMP; -- 범위를 넘어간 경우 NULL 출력
+SELECT substr(ename, LENGTH(ename)-2,2) FROM emp;  -- length를 활용한 방식도 가능
+SELECT substr(ename, 2, -2) FROM EMP; -- NULL 출력
+
+-- replace('대상', 바뀔문자, 바꿀문자)
+-- '모든' 바뀔문자를 바꿀문자로 변경
+SELECT 'a-b-c' AS replace_before,
+	replace('a-b-c', '-', ' ') AS replace_1,
+	replace('a-b-c', '-') AS replace_2
+FROM dual;
+
+-- 사원 이름의 A를 모두 '*'로 교체
+SELECT ename,
+	replace(ename, 'A', '*') AS REPLACE_name
+FROM emp;
+
+SELECT ename,
+	lpad(ename, 10, '#') AS lpad_1,
+	lpad(ename, 5, '#') AS lpad_1_1, -- 모자르면 채우고, 넘치면 자른다
+	rpad(ename, 5, '#') AS rpad_1_1, -- 즉, 두번째 값의 길이로 만들어준다
+	rpad(ename, 10, '*') AS rpad_2,
+	lpad(ename, 10, '김') AS lpad_3,
+	rpad(ename, 10, 'a') AS rpad_3
+FROM emp;
+
+-- 문제1 ename에서 앞의 두 글자만 출력 substr, lpad, replace
+
+-- substr
+SELECT ename, 
+	substr(ename, 1, 2)
+FROM emp;
+
+-- lpad
+SELECT ename,
+	lpad(ename, 2, '*')
+FROM emp;
+
+-- replace
+SELECT ename,
+	substr(ename, 3),
+	replace(ename, substr(ename, 3), '')
+FROM emp;
+
+-- 문제2 ename의 앞 두 글자만 원본으로 출력하고 나머지는 4개의 *로 출력
+SELECT ename,
+	substr(ename, 1, 2),
+	rpad(substr(ename, 1, 2), 6, '*')
+FROM emp;
+
+-- 문제3 ename의 앞 두글자만 원본으로 출력하고 나머지는 *로 출력
+-- 단, 전체 길이는 원래 이름의 길이만큼 출력
+SELECT ename,
+	substr(ename, 1, 2),
+	rpad(substr(ename, 1, 2), LENGTH(ename), '*')
+FROM emp;
+
+-- 문제4 문제3에서 앞 두글자만 *로 출력
+SELECT ename,
+	substr(ename, 3),
+	lpad(substr(ename, 3), LENGTH(ename), '*')
+FROM emp;
+
+SELECT 'ab' || 'cd' || 'efg' FROM dual; -- 문자열 더하기
+SELECT empno || ':' || ename FROM emp;
+
+SELECT 
+	'[' || ' _ _oracle_ _ ' || ']',
+	'[' || trim(' _ _oracle_ _ ') || ']' -- 공백 제거 외에는 거의 안씀
+FROM dual;
+
+SELECT 
+	round(14.46), -- 소숫점 첫째 자리 반올림
+	round(14.46, 0), -- 소숫점 첫째 자리 반올림
+	round(14.46, 1), -- 소숫점 둘째 자리 반올림
+	round(14.46, -1) -- 자연수 첫째 자리 반올림
+FROM EMP;
+
+SELECT 
+	trunc(14.46), -- 소숫점 첫째 자리 버림
+	trunc(14.46, 0), -- 소숫점 첫째 자리 버림
+	trunc(14.46, 1), -- 소숫점 첫째 자리 버림
+	trunc(14.46, -1), -- 자연수 첫째 자리 버림
+	trunc(-14.46) -- 정수 -14.46의 소숫점 첫째 자리 버림
+FROM emp;
+
+SELECT 
+	ceil(3.14), -- 지정된 숫자보다 큰 정수 중 가장 작은 정수 반환
+	floor(3.14), -- 지정된 숫자보다 작은 정수 중 가장 큰 정수 반환
+	ceil(-3.14), -- 음수의 경우
+	floor(-3.14)
+FROM emp;
+
+SELECT 
+	mod(15, 6), -- 15를 6으로 나눈 나머지
+	mod(10, 2),
+	mod(11, 2)
+FROM dual;
+
+SELECT 15/6, 15/0 FROM dual; -- 0으로 나누면 무한루프이기 때문에 에러가 나옴
+
+SELECT 
+	mod(15, 0)
+FROM dual;
+
+-- 숫자 가둬놓기
+SELECT
+	mod(6, 3),
+	mod(7, 3), 
+	mod(8, 3),
+	mod(9, 3)
+FROM dual;
+
+-- 데이터 형 변환
+
+-- 날짜 데이터
+SELECT sysdate from dual;
+
+SELECT 
+	TO_char(sysdate, 'yyyy/mm/dd hh24:mi:ss') AS 현재날짜시간1,
+	TO_char(sysdate, 'yyyy"년" mm"월" dd"일" hh24"시" mi"분" ss"초"') AS 현재날짜시간2
+FROM dual;
+
+SELECT *
+	FROM EMP
+WHERE hiredate > to_date('1981/06/01', 'yyyy/mm/dd')
+ORDER BY hiredate;
+
+-- null 처리 함수
+SELECT sal, comm, 
+	nvl(comm, 0),                     -- 첫번째 입력 데이터가 null이 아니면 그대로 반환
+	sal+nvl(comm, 0),                 -- null이면 두번째 입력 데이터 지정값 반환
+	sal+comm,
+	nvl(to_char(comm), 'N/A')
+FROM emp;
+
+-- decode문 
+SELECT job, sal,
+	decode(job,
+			'MANAGER', sal*1.1,       -- job이
+			'SALESMAN', sal*1.05,     -- MANAGER라면
+			'ANNALYST', sal,
+			sal*1.03) AS upsal        -- 위 조건에 없다면
+FROM emp
+ORDER BY upsal;
+
+-- case문
+
+-- job과 비교
+SELECT job, sal,
+	CASE job                                 -- 가독성으로 인해 decode 보다 case문 사용을 권장
+		WHEN 'MANAGER' THEN sal*1.1
+		WHEN 'SALESMAN' THEN sal*1.05
+		WHEN 'ANNALYST' THEN sal
+		ELSE sal*1.03
+	END AS upsal
+FROM emp
+ORDER BY  upsal;
+
+-- 지정된 조건과 비교
+SELECT empno, ename, comm,
+	CASE
+		WHEN comm IS NULL THEN '해당 사항 없음'
+		WHEN comm = 0 THEN '수당 없음'
+		WHEN comm > 0 THEN '수당 : ' || comm
+	END AS comm_text                          -- else 사용 가능
+FROM emp;
+
+-- 되새김 문제
+SELECT substr(ename, 1, 1) FROM emp;
+
+-- 문제1
+SELECT empno, rpad(substr(empno, 1, 2), length(empno), '*') AS masking_empno,
+		ename, rpad(substr(ename, 1, 1), length(ename), '*') AS masking_ename
+FROM EMP
+WHERE 5 <= length(ename) AND LENGTH(ename) < 6;
+
+-- 문제2
+SELECT empno, ename, sal,
+	trunc(sal/21.5, 2) AS day_pay,
+	round(sal/21.5/8, 1) AS time_pay
+FROM emp;
+
+-- 문제4
+SELECT empno, ename, mgr,
+	CASE 
+		WHEN mgr IS NULL THEN '0000'
+		WHEN substr(mgr, 1, 2) = 75 THEN '5555'
+		WHEN substr(mgr, 1, 2) = 76 THEN '6666'
+		WHEN substr(mgr, 1, 2) = 77 THEN '7777'
+		WHEN substr(mgr, 1, 2) = 78 THEN '8888'
+		ELSE to_char(mgr)
+		END AS chg_mgr
+FROM emp;
+
+
+
+
+
+
