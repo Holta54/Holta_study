@@ -592,6 +592,8 @@ SELECT empno, ename, sal,
 FROM emp;
 
 -- 문제4
+
+-- 문제 4-1
 SELECT empno, ename, mgr,
 	CASE 
 		WHEN mgr IS NULL THEN '0000'
@@ -602,6 +604,32 @@ SELECT empno, ename, mgr,
 		ELSE to_char(mgr)
 		END AS chg_mgr
 FROM emp;
+
+-- 문제 4-2
+SELECT empno, ename, mgr,
+	CASE 
+		WHEN mgr IS NULL THEN '0000'
+		WHEN lpad(mgr, 2, '*') = 75 THEN '5555'
+		WHEN lpad(mgr, 2, '*') = 76 THEN '6666'
+		WHEN lpad(mgr, 2, '*') = 77 THEN '7777'
+		WHEN lpad(mgr, 2, '*') = 78 THEN '8888'
+		ELSE to_char(mgr)
+		END AS chg_mgr
+FROM emp;
+
+-- 문제 4-3
+SELECT empno, ename, mgr,
+	CASE 
+		WHEN mgr IS NULL THEN '0000'
+		WHEN mgr LIKE '75%' THEN '5555'
+		WHEN mgr LIKE '76%' THEN '6666'
+		WHEN mgr LIKE '77%' THEN '7777'
+		WHEN mgr LIKE '78%' THEN '8888'
+		ELSE to_char(mgr)
+		END AS chg_mgr
+FROM emp;
+
+
 
 
 
