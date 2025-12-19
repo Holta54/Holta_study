@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* css 주석 */
+
+        /* 전체 선택자*/
+        * {
+            color: blueviolet;
+        }
+
+        /* tag 선택자 */
+        h2 {
+            font-size: 400%;
+        }
+
+        h1 {
+            font-size: 400%;
+        }
+
+        /* ,로 구분해서 여러개 적용 가능 */
+        h1,
+        h2 {
+            font-size: 400%;
+        }
+
+        /* class 선택자 */
+        .c1 {
+            background-color: yellowgreen;
+        }
+
+        .bigText {
+            font-size: 30px;
+        }
+
+        /* id 선택자 (하나만)*/
+        #i1 {
+            color: rgb(206, 10, 10);
+        }
+
+        /* 자식 선택자 (직계 자식만 적용) */
+        div > strong {
+            background-color: dodgerblue;
+        }
+
+        /* 자손 선택자 (모든 자손에게 적용)*/
+        div strong {
+            border: 3px solid orange;
+        }
+
+        /* 속성 선택자 */
+        /* 속성이 있으면 */
+        [href] {
+            background-color: yellow;
+        }
+
+        /* 속성의 값이 일치하면 */
+        [type="text"] {
+            background-color: aqua;
+        }
+
+        /* #i1은 [id="i1"]의 줄임말 */
+        [id="i1"] {
+            background-color: aquamarine;
+        }
+
+        /* https로 값이 시작되는 것들(like 검색처럼) */
+        [href^="https"] {
+            background-color: hotpink;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>hello world</h1>
+    <h2>부제목</h2>
+
+    <ul>
+        <li class="c1" id="i1">li 1</li>
+        <!-- 하나의 태그에 여러개의 클래스를 가질 수 있다 -->
+        <li class="c1 bigText">li 2</li>
+        <li>li 3</li>
+    </ul>
+
+    <strong>밖에 strong</strong>
+
+    <div>
+        <strong>div 안에 strong</strong>
+    </div>
+
+    <div>
+        <a href="">
+        <strong>div > a > strong</strong>
+        </a>
+    </div>
+
+    <input type="text"><br>
+    <input type="password"><br>
+    <a href="http://.....">http</a>
+    <a href="https://.....">https</a>
+</body>
+
+</html>
