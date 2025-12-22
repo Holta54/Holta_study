@@ -37,13 +37,13 @@
             font-size: 30px;
         }
 
-        /* id 선택자 (하나만)*/
+        /* id 선택자 (한 페이지에 하나의 id만)*/
         #i1 {
             color: rgb(206, 10, 10);
         }
 
         /* 자식 선택자 (직계 자식만 적용) */
-        div > strong {
+        div>strong {
             background-color: dodgerblue;
         }
 
@@ -54,7 +54,7 @@
 
         /* 속성 선택자 */
         /* 속성이 있으면 */
-        [href] {
+        [readonly] {
             background-color: yellow;
         }
 
@@ -68,9 +68,129 @@
             background-color: aquamarine;
         }
 
-        /* https로 값이 시작되는 것들(like 검색처럼) */
+        /* https로 값이 시작되는 것들(like 검색처럼 여러 id를 선택할때 많이 사용) */
         [href^="https"] {
             background-color: hotpink;
+        }
+
+        [id^=title_] {
+            color: red;
+        }
+
+        /* $= 값으로 끝나는 모든 것 */
+        [id$=_title] {
+            color: red;
+        }
+
+        /* 띄어쓰기로 구분되어 값을 포함하는 것*/
+        /* .c1은 [class~=c1]의 줄임말 */
+        [class~=c1] {
+            color: #ff0000;
+        }
+
+        /* 딱 붙여서 사용하면 and 조건이 된다 */
+        input[readonly] {
+            color: red;
+        }
+
+        input[type=text] {
+            color: red;
+        }
+
+        a.c2 {
+            color: red;
+        }
+
+        li.c1.c2 {
+            color: red;
+        }
+
+        /* 마우스 올렸을 때 */
+        #div1:hover {
+            background-color: yellow;
+        }
+
+        /* 클릭 했을 때 */
+        #div1:active {
+            background-color: aqua;
+        }
+
+        /* 선택되면 적용(마우스로 input 클릭하거나 tab으로 이동하여 선택) */
+        .text1:focus {
+            background-color: yellow;
+        }
+
+        /* 선택자 중에서 몇 번째 자식을 지정할 때 사용 */
+        #ul1>li:nth-child(4) {
+            background-color: skyblue;
+        }
+
+        /* 홀수 번 자식만 적용(짝수는 2n) */
+        #ul1>li:nth-child(2n-1) {
+            background-color: gray;
+        }
+
+        /* 부정 선택자 :not 사용 */
+        #ul1 li:not(.c2) {
+            font-size: 32px;
+        }
+
+        /* 선택자 뒤 또는 앞에 content 추가 및 content의 CSS 추가 */
+        h3:after {
+            content: " APTER";
+            color: black;
+        }
+
+        h3:before {
+            content: "BEFORE ";
+            color: blue;
+            font-size: 10px;
+        }
+
+        *::selection {
+            background-color: aquamarine;
+        }
+
+        /* checkbox, radio 등이 선택됐을 때 적용 */
+        input[type=checkbox]:checked {
+            width: 30px;
+            height: 30px;
+        }
+
+        /* 형제 선택자: + 사용 */
+        input[type=checkbox]:checked+span {
+            font-size: 30px;
+            text-decoration: line-through;
+        }
+
+        /* 우선 순위
+           !important > style > #id 선택자 > 속성 선택자 
+            = .class 선택자 > 태그 선택자 > 전체 선택자 > 브라우저 기본값
+
+            구체적일 수록 우선순위가 높다
+
+            동등한 우선순위 일 때 
+                나중에 나온 것이 덮어쓴다
+        */
+        #id2 {
+            color: darkcyan;
+        }
+
+        .class1 {
+            color: palevioletred;
+        }
+
+        [data-human] {
+            color: coral;
+        }
+
+        div {
+            color: chartreuse;
+            font-size: 32px;
+        }
+
+        div {
+            color: orange /*!important*/;
         }
     </style>
 </head>
@@ -94,14 +214,78 @@
 
     <div>
         <a href="">
-        <strong>div > a > strong</strong>
+            <strong>div > a > strong</strong>
         </a>
     </div>
+    <br>
 
     <input type="text"><br>
     <input type="password"><br>
     <a href="http://.....">http</a>
     <a href="https://.....">https</a>
+    <br><br>
+
+    <table>
+        <tr>
+            <td class="no">No</td>
+            <td id="title_0">제목</td>
+            <td>글쓴이</td>
+        </tr>
+        <tr>
+            <td class="no">2</td>
+            <td id="title_2">제목2</td>
+            <td>글쓴이2</td>
+        </tr>
+        <tr>
+            <td class="no">1</td>
+            <td id="title_1">제목1</td>
+            <td>글쓴이1</td>
+        </tr>
+    </table>
+    <br>
+
+    <div id="div1">
+        hover 연습
+    </div>
+
+    focus 연습 : <input type="number" class="text1">
+
+    <ul id="ul1">
+        <li class="c2">1</li>
+        <li class="c2">2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </ul>
+
+    <h3>abcd</h3>
+
+    <input type="checkbox"><span>복습</span><br>
+    <input type="checkbox"><span>저녁먹기</span><br>
+
+    <div id="id2" class="class1" data-human="천안" style="color: brown">
+        우선순위 연습
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br>
 </body>
 
 </html>
