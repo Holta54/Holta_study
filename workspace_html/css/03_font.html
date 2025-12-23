@@ -21,14 +21,114 @@
 
         /* 폰트 스타일 */
         .style {
-            font-style: italic;
+            font-style: italic; /* 기울임 체 */
         }
-        .fw-100 { font-weight: 100; }
-        .fw-400 { font-weight: 400; }
-        .fw-1000 { font-weight: 1000; }
-        /* 100 ~ 1000 100 단위로 사용 가능 */
-        .fw-2000 { font-weight: 2000; }
-        .fw-bold { font-weight: bold; }
+
+        /* 폰트 굵기 */
+        .fw-100 {
+            font-weight: 100;
+        }
+
+        .fw-400 {
+            font-weight: 400;
+        }
+
+        .fw-1000 {
+            font-weight: 1000;
+        }
+
+        /* 100 ~ 1000 까지 100 단위로 사용 가능 (높을 수록 두꺼워짐, 폰트가 지원하는 두께만 가능) */
+        .fw-2000 {
+            font-weight: 2000;
+        }
+
+        .fw-bold {
+            font-weight: bold;
+        }
+
+        /* 실무에서는 정확한 태그를 사용하는 것이 좋다 */
+        .fake-h1 {
+            font-size: 2em;
+            font-weight: 700;
+        }
+
+        .border {
+            border: 1px solid red;
+        }
+
+        /* 텍스트 정렬 */
+        /* 우측 정렬 */
+        .align-right {
+            text-align: right;
+        }
+
+        /* 중앙 정렬 */
+        .align-center {
+            text-align: center;
+        }
+
+        /* 좌측 정렬 */
+        .align-left {
+            text-align: left;
+        }
+
+        .align-justify {
+            text-align: justify;
+        }
+
+        /* 자간(글자 간격) */
+        .spacing {
+            /* letter-spacing: 1em; */
+            letter-spacing: -0.1em;
+        }
+
+        /* 줄 간격 (위 아래로 정렬이 들어감) */
+        .lh {
+            line-height: 300%;
+        }
+
+        /* 세로 방향 중앙 정렬: height(칸의 높이)와 line-height(줄 간격)의 값을 같이준다 */
+        .middle {
+            border: 1px solid red;
+            height: 100px;
+            line-height: 100px;
+            text-align: center;
+        }
+        .nowrap {
+            border: 1px solid red;
+            width: 50vw;
+
+            /* 줄내림 없음 */
+            white-space: nowrap;
+            /* 칸을 넘치는 글씨 숨기기 */
+            overflow: hidden;
+            /* 말줄임표 */
+            text-overflow: ellipsis;
+        }
+
+        .text {
+            border: 1px solid red;
+            width: 200px;
+        }
+        .word-wrap {
+            /* 한 단어가 너무 길면 튀어나오기 때문에
+                단어 중간이라도 다음 줄에 보여주는 기능
+                자동 줄 바꿈은 유지 */
+            word-wrap: break-word;
+        }
+        .word-break {
+            /* word-wrap: break-word에서 자동 줄 바꿈 무시 */
+            word-break: break-all;
+        }
+
+        /* 밑줄 (a tag) / none: 줄 없음 (a tag 밑줄 없앨 때 사용)*/
+        .td1 {
+            text-decoration: underline;
+        }
+        /* 취소선 */
+        .td2 {
+            text-decoration: line-through;
+        }
     </style>
 </head>
 
@@ -36,9 +136,9 @@
     기본 글씨 abc 123
     <p id="p1">
         글씨를 좀 적습니다.
-        <div>
-            자식 안쪽의 글씨
-        </div>
+    <div>
+        자식 안쪽의 글씨
+    </div>
     </p>
     <div class="style">
         font-style
@@ -48,9 +148,93 @@
     <div class="fw-1000">1000</div>
     <div class="fw-2000">2000</div>
     <div class="fw-bold">bold</div>
-
+    <hr>
     <h1>h1</h1>
     <div class="fake-h1">fake-h1</div>
+    <hr>
+    <div class="align-right border">align-right</div>
+    <div class="align-center border">align-center</div>
+    <div class="align-left border">align-left</div>
+    <div class="align-justify">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione odio fugiat exercitationem officia dicta,
+        consequuntur ipsum incidunt reiciendis unde architecto et, quas, explicabo dolores aperiam. Delectus expedita
+        cum nemo? Quo!
+    </div>
+    <!-- a 태그의 경우 자신의 사이즈 만큼만 칸이 생김 -->
+    <a href="fafdfsd" class="align-right border">a 태그</a>
+    <!-- div를 사용해서 블럭을 만들어줌 -->
+    <div class="align-right border">
+        <a href="fafdfsd">a 태그</a>
+    </div>
+    <div class="spacing">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium consequatur nostrum libero? Laudantium sint impedit, non animi facilis nisi. Dolor dicta quis totam illo neque non labore dignissimos! Eligendi, iusto.
+    </div>
+    <hr>
+    <div class="lh">
+        첫번째 줄<br>
+        두번째 줄
+    </div>
+    <div class="middle">
+        세로 방향 중앙 정렬
+    </div>
+    <hr>
+    <div class="nowrap" title="Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus delectus dolorum at eveniet error. Quas totam sunt delectus incidunt corporis laboriosam quaerat temporibus, veritatis dolor voluptatem sequi quis ipsum corrupti.">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus delectus dolorum at eveniet error. Quas totam sunt delectus incidunt corporis laboriosam quaerat temporibus, veritatis dolor voluptatem sequi quis ipsum corrupti.
+    </div>
+    <div class="text word"> <!-- -로 띄어쓰기 하는 방법이 있음 -->
+        ljl;jaf;l-kjf;gljrie-ghrughlghlkhfl-dfanklgnaggagrfgagr
+        agraggdg
+        hrebdjmgnbakjghjhhh-aklgahjklhdgalgh
+        fhdjkafhadfhdalkfdh
+    </div>
+    <div class="text word-wrap">
+        ljl;jaf;lkjf;gljrieghrughlghlkhfldfanklgnaggagrfgagr
+        agraggdg
+        hrebdjmgnbakjghjhhhaklgahjklhdgalgh
+        fhdjkafhadfhdalkfdh
+    </div>
+    <div class="text word-break">
+        ljl;jaf;lkjf;gljrieghrughlghlkhfldfanklgnaggagrfgagr
+        agraggdg
+        hrebdjmgnbakjghjhhhaklgahjklhdgalgh
+        fhdjkafhadfhdalkfdh
+    </div>
+    <div class="td1">
+        글씨 몇자
+    </div>
+    <div class="td2">
+        글씨 몇자
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br>
 </body>
 
 </html>
