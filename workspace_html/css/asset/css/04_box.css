@@ -93,9 +93,9 @@ div.second {
         컨텐츠 적기
         부모에 overflow: hidden 주기
     */
-    #div1, #div2, #div3 {
-        /* border: 1px solid red; */
-    }
+    /* #div1, #div2, #div3 {
+        border: 1px solid red;
+    } */   
     #div2, #div3 {
         margin: 30px;
     }
@@ -107,9 +107,9 @@ div.second {
         /* padding: 1px; */
         overflow: hidden;
     }
-    #div2 {
-        /* margin-top: -1px; */
-    }
+    /* #div2 {
+        margin-top: -1px;
+    } */
 
     body {
         margin: 0;

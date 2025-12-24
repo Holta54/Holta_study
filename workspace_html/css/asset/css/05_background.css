@@ -20,6 +20,7 @@
     /* background-position: right bottom; */
     background-position: center;
 }
+
 .profile {
     border: 1px solid green;
     border-radius: 50%;
@@ -33,6 +34,7 @@
     height: 80vh;
     background-image: url('../../../winter.jpeg');
     background-size: cover;
+    /* 브라우저 전체 스크롤에 관계없이 그 자리에 있는 이미지처럼 보이는 기술 */
     background-attachment: fixed;
 
     overflow: auto;
@@ -45,3 +47,8 @@
     height: 100px;
     background: skyblue url('https://images.icon-icons.com/1861/PNG/96/phonebooth_118224.png');
 }
+
+/* background: 축약형
+    color || image || repeat || position/size || attachment
+    순서에 관계없이, 그리고 종유에 관계없이 사용가능
+*/

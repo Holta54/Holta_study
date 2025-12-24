@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div.red {
+            text-shadow: 10px 3px red;
+        }
+        /* text-shadow: offset-x, offset-y blur color */
+        div.blur {
+            text-shadow: 0 0 5px red;
+            color: white;
+            font-size: 300%;
+        }
+
+        /* box-shadow: offset-x, offset-y blur spread color */
+        div.redBox {
+            border: 1px solid black;
+            width: 100px;
+            /* box-shadow: 10px 5px red; */
+            box-shadow: 10px 5px 10px red;
+        }
+        div.redBox2 {
+            margin-top:  50px;
+            border: 1px solid gray;
+            width: 100px;
+            height: 100px;
+        }
+        div.redBox2:hover {
+            /* box-shadow: 10px 5px red; */
+            box-shadow: 0 0 5px 5px rgb(220, 220, 220);
+
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="red">
+        그림자 Shadow
+    </div>
+    <div class="blur">
+        그림자 Shadow
+    </div>
+    <hr>
+    <div class="redBox">
+        뚱이와 함께
+    </div>
+    <div class="redBox2">
+        뚱이와 함께
+    </div>
+</body>
+</html>
