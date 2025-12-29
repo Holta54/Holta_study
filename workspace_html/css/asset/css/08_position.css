@@ -119,3 +119,89 @@ body {
     box-shadow: 0 0 10px 3px lightgray;
     /* top: -5px; */
 }
+
+.menu {
+    border: 1px solid red;
+}
+/* .menu:hover + .submenu {
+    background-color: red;
+} */
+.submenu {
+    border: 1px solid blue;
+    display: none;
+}
+
+.menu:hover .submenu {
+    background-color: red;
+    display: block;
+}
+
+.menu2 {
+    border: 1px solid red;
+}
+.menu2 ul li {
+    display: inline-block;
+}
+.submenu2 {
+    border: 1px solid blue;
+    display: none;
+    position: absolute;
+}
+.menu2:hover + .submenu2 {
+    background-color: rgba(255, 0, 0, 7);
+    display: block;
+}
+.submenu2:hover {
+    display: block;
+    background-color: rgba(255, 0, 0, 7);
+}
+
+.p1 {
+    border: 1px solid red;
+    width: 200px;
+    height: 200px;
+
+    position: relative;
+}
+.c1 {
+    border: 1px solid blue;
+    width: 100px;
+    height: 100px;
+
+    position: absolute;
+    /* 사칙연산 양쪽에 공백 필수 */
+    top: calc((200px/2) - (100px/2));
+    left: calc(50% - (100px/2));
+}
+
+:root {
+    --menu-color: rgba(255, 0,  0,  0.214);
+}
+.p1 {
+    background-color: var(--menu-color);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,42 @@
+article img {
+    width: 100px;
+
+    float: right;
+}
+
+.box {
+    border: 1px solid red;
+
+    width: 100px;
+    height: 100px;
+    margin: 10px;
+}
+.box.left {
+    float: left;
+    border: 1px solid blue;
+} 
+.box.right {
+    float: right;
+} 
+
+.div3 {
+    border: 1px solid red;
+}
+
+.clearFix::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.header {
+    text-align: center;
+    /* line-height: 100px; */
+}
+.logo {
+    border: 1px solid red;
+
+    width: 100px;
+    /* margin: auto; */
+    display: inline-block;
+}
