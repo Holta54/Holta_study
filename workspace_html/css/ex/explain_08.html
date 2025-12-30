@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box {
+            /* border: 1px solid red; */
+            height: 970px;
+            position: relative;
+        }
+
+        .img1 {
+            /* border: 1px solid blue; */
+            width: 740px;
+            height: 670px;
+            background-image: url('https://images03.nicepage.com/c461c07a441a5d220e8feb1a/e1900cdaa5c15cecae8746b6/rtyy-min.jpg');
+            background-size: cover;
+            background-position: center;
+            position: absolute;
+            top: calc((970px/2) - (670px/2));
+            left: 100px;
+            z-index: 2;
+        }
+        .bac1 {
+            /* border: 1px solid green; */
+            width: 733px;
+            height: 840px;
+            background-color: #6e52c7;
+            position: absolute;
+            top: calc((970px/2) - (840px/2));
+            right: 0;
+            z-index: 1;
+        }
+        .tit1 {
+            /* border: 1px solid hotpink; */
+            width: 495px;
+            height: 470px;
+            color: #6e52c7;
+            background-color: white;
+            position: absolute;
+            top: calc((970px/2) - (470px/2));
+            right: calc((733px/2) - (495px/2));
+            z-index: 3;
+            text-align: right;
+            padding: 60px 50px;
+            box-sizing: border-box;
+            overflow: hidden;
+        }
+        .tit1 .fon1{
+            color: #6e52c7;
+        }
+
+        .about {
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        .fashion {
+            text-align: right;
+            /* width: 300px; */
+            font-size: 60px;
+            line-height: 100%;
+            margin: 0;
+        }
+
+        .imgpic {
+            font-size: 18px;
+            font-weight: 700;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box">
+        <div class="img1"></div>
+        <div class="bac1"></div>
+        <div class="tit1">
+            <p class="about">ABOUT US</p>
+            <h1 class="fashion">Fashion trends 2021</h1>
+            <p class="imgpic">images from <a href="#top" class="fon1">Freepik</a></p>
+        </div>
+    </div>
+</body>
+
+</html>

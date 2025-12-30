@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box {
+            /* border: 1px solid red; */
+            height: 1000px;
+        }
+
+        .minigogi {
+            /* border: 1px solid blue; */
+            width: 100px;
+            height: 500px;
+        }
+        .m1 {
+            /* border: 1px solid hotpink; */
+            width: 100px;
+            height: 100px;
+            margin-bottom: 20px;
+            box-sizing: border-box;
+        }
+        .b1 {
+            width: 500px;
+            height: 500px;
+        }
+        .pic1:hover{
+            border: 1px solid hotpink;
+        }
+        .pic2:hover{
+            border: 1px solid hotpink;
+        }
+        .pic3:hover{
+            border: 1px solid hotpink;
+        }
+        .pic4:hover{
+            border: 1px solid hotpink;
+        }
+        .pic1:hover + .bpic1 {
+            position: absolute;
+            top: 8px;
+            left: 150px;
+            display: block;
+        }
+        .pic2:hover + .bpic2 {
+            position: absolute;
+            top: 8px;
+            left: 150px;
+            display: block;
+        }
+        .pic3:hover + .bpic3 {
+            position: absolute;
+            top: 8px;
+            left: 150px;
+            display: block;
+        }
+        .pic4:hover + .bpic4 {
+            position: absolute;
+            top: 8px;
+            left: 150px;
+            display: block;
+        }
+
+        .pic1 {
+            background-image: url('https://thumbnail.coupangcdn.com/thumbnails/remote/492x492ex/image/rs_quotation_api/piebeswn/bf44b7abdaa84dca9eb678d8547f035c.JPG');
+            background-size: 100px 100px;
+        }
+        .pic2 {
+            background-image: url('https://thumbnail.coupangcdn.com/thumbnails/remote/492x492ex/image/rs_quotation_api/pwr11os7/e3d0858d7c414df8b1d350b1fa680f14.JPG');
+            background-size: 100px 100px;
+        }
+        .pic3 {
+            background-image: url('https://thumbnail.coupangcdn.com/thumbnails/remote/492x492ex/image/rs_quotation_api/0aijlopu/f1b75ccfe0ab474a9e9d5a1c94085846.JPG');
+            background-size: 100px 100px;
+        }
+        .pic4 {
+            background-image: url('https://thumbnail.coupangcdn.com/thumbnails/remote/492x492ex/image/rs_quotation_api/lpqivxkn/286ef8cb080a404cbd7fcbcfdd08888f.JPG');
+            background-size: 100px 100px;
+        }
+
+        .bpic1 {
+            background-image: url('https://thumbnail.coupangcdn.com/thumbnails/remote/492x492ex/image/rs_quotation_api/piebeswn/bf44b7abdaa84dca9eb678d8547f035c.JPG');
+            background-size: 500px 500px;
+        }
+        .bpic2 {
+            background-image: url('https://thumbnail.coupangcdn.com/thumbnails/remote/492x492ex/image/rs_quotation_api/pwr11os7/e3d0858d7c414df8b1d350b1fa680f14.JPG');
+            background-size: 500px 500px;
+        }
+        .bpic3 {
+            background-image: url('https://thumbnail.coupangcdn.com/thumbnails/remote/492x492ex/image/rs_quotation_api/0aijlopu/f1b75ccfe0ab474a9e9d5a1c94085846.JPG');
+            background-size: 500px 500px;
+        }
+        .bpic4 {
+            background-image: url('https://thumbnail.coupangcdn.com/thumbnails/remote/492x492ex/image/rs_quotation_api/lpqivxkn/286ef8cb080a404cbd7fcbcfdd08888f.JPG');
+            background-size: 500px 500px;
+        }
+
+        .bpic1, .bpic2, .bpic3, .bpic4 {
+            width: 500px;
+            height: 500px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <div class="minigogi">
+            <div class="pic1 m1"></div>
+            <div class="bpic1 b1"></div>
+            <div class="pic2 m1"></div>
+            <div class="bpic2 b1"></div>
+            <div class="pic3 m1"></div>
+            <div class="bpic3 b1"></div>
+            <div class="pic4 m1"></div>
+            <div class="bpic4 b1"></div>
+        </div>
+    </div>
+</body>
+</html>

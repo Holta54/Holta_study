@@ -6,75 +6,157 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        ul {
-            padding-left: 0;
+        h1, ul {
+            padding: 0;
         }
 
         li {
             list-style-type: none;
         }
-
-        h1 {
+        
+        .mainmenu {
+            /* border: 1px solid red; */
+            background-color: rgba(0, 0, 0, 0.7);
+            height: 100px;
+            text-align: center;
+            /* overflow: hidden; */
+        }
+        
+        .logo, .wrap1, .lang {
+            /* border: 1px solid blue; */
+            color: white;
+            display: inline-block;
+            vertical-align: top;
             margin: 0;
         }
 
-        #mainmenu {
-            border: 1px solid red;
+        .logo {
+            float: left;
         }
-
-        .logo,
-        .wrap1,
-        .language {
-            border: 1px solid rebeccapurple;
-            display: inline-block;
-        }
-        .logo, .language {
-            height: 50px;
-            line-height: 50px;
-        }
-        .right {
+        
+        .lang {
             float: right;
         }
         .wrap1 {
-            
+            width: 900px;
+            height: 100px;
         }
+        
         .wrap1 li {
-            border: 1px solid orange;
-            display: inline-block;
-            width: 200px;
-            height: 50px;
-            line-height: 50px;
+            /* border: 1px dotted red; */
+            /* background-color: white; */
+            color: white;
+            width: 150px;
+            height: 100px;
+            line-height: 100px;
+            margin: 0 25px;
             text-align: center;
-        }
-
-        #submenu {
-            border: 1px solid blue;
-            height: 800px;
-        }
-
-        .wrap2 {
-            border: 1px solid green;
-            height: 500px;
-            text-align: center;
-        }
-
-        .wrap2 ul {
-            border: 1px solid pink;
             display: inline-block;
-            width: 200px;
-            height: 50px;
-            line-height: 50px;
             vertical-align: top;
-            margin: auto;
+        }
+        
+        .submenu {
+            /* border: 1px solid red; */
+            background-color: #f1f1f1;
+            text-align: center;
+            /* height: 0; */
+            /* display: none; */
+            visibility: hidden;
+        }
+        
+        .wrap2 {
+            /* border: 1px solid blue; */
+            display: inline-block;
+            vertical-align: top;
+            margin: 0;
+        }
+        
+        .wrap2 li {
+            /* border: 1px dotted red; */
+            background-color: #f1f1f1;
+            width: 150px;
+            height: 50px;
+            margin: 0 25px;
+            line-height: 50px;
+            text-align: center;
         }
 
-        .wrap2 li {
-            border: 1px dotted red;
+        .mainmenu:hover {
+            background-color: white;
+        }
+        .mainmenu:hover h1 {
+            color: black;
+        }
+        .mainmenu:hover .cl {
+            color: black;
+        }
+        .mainmenu:hover + .submenu {
+            /* display: block; */
+            /* transition: all 0.7s; */
+            /* height: 500px; */
+            visibility: visible;
+        }
+        .submenu:hover {
+            visibility: visible;
         }
     </style>
 </head>
 
 <body>
+    <div id="box">
+        <div class="mainmenu">
+            <h1 class="logo">(주)웅비기계</h1>
+            <ul class="wrap1">
+                <li class="cl">회사소개</li>
+                <li class="cl">사업분야</li>
+                <li class="cl">채용정보</li>
+                <li class="cl">공지사항</li>
+            </ul>
+            <h1 class="lang">LANGUAGE</h1>
+        </div>
+        <div class="submenu">
+            <ul class="wrap2 li1">
+                <li>ceo 인사말</li>
+                <li>회사전경</li>
+                <li>연혁</li>
+                <li>주요 납품실적</li>
+                <li>조직도</li>
+                <li>오시는 길</li>
+            </ul>
+            <ul class="wrap2 li2">
+                <li>2차전지설비</li>
+                <li>가열로</li>
+                <li>쿨러</li>
+                <li>분쇄기</li>
+                <li>혼합기</li>
+                <li>과립기</li>
+                <li>이송기기</li>
+                <li>플랜트설비</li>
+                <li>기타설비</li>
+            </ul>
+            <ul class="wrap2 li3">
+                <li>채용정보</li>
+                <li>채용공고</li>
+            </ul>
+            <ul class="wrap2 li4">
+                <li>공지사항</li>
+                <li>문의하기</li>
+            </ul>
+        </div>
+    </div>
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+<!-- <body>
     <div class="box">
         <div id="mainmenu">
             <h1 class="logo">(주)휴먼기계</h1>
@@ -118,6 +200,4 @@
             </div>
         </div>
     </div>
-</body>
-
-</html>
+</body> -->
